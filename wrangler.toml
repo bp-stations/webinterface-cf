@@ -1,7 +1,10 @@
-name = "station-count"
+name = "station"
 main = "src/index.js"
 compatibility_date = "2024-11-01"
 send_metrics = true
+routes = [
+  { pattern = "api.mein-auto-tanken.de", custom_domain = true }
+]
 
 [[d1_databases]]
 binding = "DATABASE"

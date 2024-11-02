@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx wrangler dev --remote",
-    "deploy": "npx wrangler deploy"
+    "deploy": "npx wrangler deploy",
+    "page": "npx http-server ./page",
+    "css": "tailwindcss -i ./page/css/base.css -o ./page/css/main.css --watch -m"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "tailwindcss": "^3.4.14",
     "wrangler": "^3.83.0"
   }
 }

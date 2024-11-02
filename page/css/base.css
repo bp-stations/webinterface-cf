@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.s_station {
+    @apply border-b border-gray-200 hover:bg-slate-200 dark:text-white dark:hover:bg-slate-700;
+}
+
+.s_station td {
+    @apply p-4;
+}
