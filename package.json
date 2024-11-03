@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "npx wrangler dev --remote",
     "deploy": "npx wrangler deploy",
-    "page": "npx http-server ./page",
-    "css": "tailwindcss -i ./page/css/base.css -o ./page/css/main.css --watch -m"
+    "page": "wrangler pages dev ./ --d1 DATABASE=3939b97c-932c-4176-9360-31c81614104d",
+    "css": "tailwindcss -i ./css/base.css -o ./css/main.css --watch -m"
   },
   "keywords": [],
   "author": "",

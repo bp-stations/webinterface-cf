@@ -6,7 +6,14 @@ routes = [
   { pattern = "api.mein-auto-tanken.de", custom_domain = true }
 ]
 
+[env.production]
 [[d1_databases]]
 binding = "DATABASE"
 database_name = "stations"
 database_id = "ab8a288d-ab6a-49d6-a7e2-ac51d24b376c"
+
+[env.staging]
+[[d1_databases]]
+binding = "DB"
+database_name = "stations-staging"
+database_id = "3939b97c-932c-4176-9360-31c81614104d"

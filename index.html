@@ -23,10 +23,9 @@
 </head>
 <body>
     <div class="container mx-auto px-4">
-        <h1 class="border text-center m-2 mb-5 text-5xl p-2 dark:text-white dark:border-white">Tankstellen: <span hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-get="https://api.mein-auto-tanken.de/count"></span></h1>
-        <input type="text" class="w-5/6 border p-4 mt-4" placeholder="Stadt, Postleitzahl, Name" name="search" id="search" required
-               hx-trigger="keyup changed delay:500ms" hx-target="#results" hx-swap="innerHTML" hx-get="https://api.mein-auto-tanken.de/search">
-        <a href="/map"><img alt="open Mapview" class="inline w-1/12" src="/static/images/map.svg"></a>
+        <h1 class="border text-center m-2 mb-5 text-5xl p-2 dark:text-white dark:border-white">Tankstellen: <span hx-trigger="load" hx-target="this" hx-swap="innerHTML" hx-get="/count"></span></h1>
+        <input type="text" class="w-full border p-4 mt-4" placeholder="Stadt, Postleitzahl, Name" name="search" id="search" required
+               hx-trigger="keyup changed delay:500ms" hx-target="#results" hx-swap="innerHTML" hx-get="/search">
     </div>
     <div class="container pt-3 mx-auto w-3/4">
         <table class="w-full table-auto">
