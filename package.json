@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx wrangler dev --remote",
     "deploy": "npx wrangler deploy",
-    "page": "wrangler pages dev ./ --d1 DATABASE=3939b97c-932c-4176-9360-31c81614104d",
+    "page": "wrangler pages dev ./src --d1 DATABASE=3939b97c-932c-4176-9360-31c81614104d",
     "css": "tailwindcss -i ./src/css/base.css -o ./src/css/main.css --watch -m",
     "css-build": "tailwindcss -i ./src/css/base.css -o ./src/css/main.css -m"
   },

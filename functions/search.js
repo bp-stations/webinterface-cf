@@ -7,6 +7,16 @@ function render_search(id, city, name) {
 `;
 }
 
+function get_expires_time() {
+    const now = new Date();
+    const dayOfWeek = now.getUTCDay();
+    const daysUntilNextMonday = (8 - dayOfWeek) % 7 || 7;
+    const nextMonday = new Date(now);
+    nextMonday.setUTCDate(now.getUTCDate() + daysUntilNextMonday);
+    nextMonday.setUTCHours(2, 20, 0, 0);
+    return nextMonday.toUTCString();
+  }
+
 export async function onRequestGet(context) {
     const { DATABASE } = context.env;
     const url = new URL(context.request.url)
@@ -15,10 +25,10 @@ export async function onRequestGet(context) {
         search_term = search_term.toLocaleLowerCase();
         const stmp = DATABASE.prepare("SELECT id, city, name FROM stations WHERE LOWER(name) LIKE ?1 OR LOWER(city) LIKE ?1 OR LOWER(postcode) LIKE ?1 LIMIT 20;");
         const { results } = await stmp.bind(`%${search_term}%`).all();
-        let result_html = "";
-        results.forEach(element => { result_html = result_html + render_search(element.id, element.city, element.name); });
+        const result_html = results.map(element => render_search(element.id, element.city, element.name)).join('');
         const response = new Response(result_html, {headers: {
-            "content-type": "text/html"
+            "content-type": "text/html",
+            "Expires": get_expires_time()
         }});
         return response
     } else {
